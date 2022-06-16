@@ -9,7 +9,7 @@ def main():
     if choice == "Content Based prediction":
         st.subheader("Content Based prediction")
         title = st.text_area("Title")
-        body = ("Body")
+        body = st.text_area("Body")
         if st.button("Predict Tags"):
             full_text = title + " " + body
             st.write(full_text)
