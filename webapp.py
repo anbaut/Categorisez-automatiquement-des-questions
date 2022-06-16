@@ -1,8 +1,5 @@
 import streamlit as st
 
-from gensim.summarizatrion import summarize
-
-
 def main():
     
     st.title("Tags prediction")
