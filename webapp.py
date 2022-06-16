@@ -1,16 +1,21 @@
 import streamlit as st
 
+from gensim.summarizatrion import summarize
+
+
 def main():
     
     st.title("Tags prediction")
     menu = ["Content Based prediction"]
     choice = st.sidebar.selectbox("Menu",menu)
 
-    if choice == "Home":
-        st.subheader("Summerization")
-        raw_text = st.text_area("Enter Text Here")
-        if st.button("Summarize"):
-            st.write(raw_text)
+    if choice == "Content Based prediction":
+        st.subheader("Content Based prediction")
+        title = st.text_area("Title")
+        body = ("Body")
+        if st.button("Predict Tags"):
+            full_text = title + " " + body
+            st.write(full_text)
     else:
         st.subheader("About")
 
