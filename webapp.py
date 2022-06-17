@@ -30,8 +30,6 @@ def main():
             print(df)
             df.loc[df.shape[0]] = [title, body,'None','None','None','None','None','None',full_text]
 
-            st.write(full_text)
-
             post = recommend_tags(df,title,100)
             tags = post.index.tolist()
             st.write(tags[:5])
