@@ -11,7 +11,7 @@ def main():
     df = pd.read_csv("df.csv", sep=',')
     df = df.sample(frac=0.1,random_state=1)
     df = df.reset_index()
-    df = df.drop(['index', 'Id','Score','ViewCount','FavoriteCount','AnswerCount','Tags_cpt'], axis=1)
+    df = df.drop(['index'], axis=1)
     full_text = df["Title"].values + " " + df["Body"].values
     df["full_text"] = df["Title"] + df["Body"]
 
