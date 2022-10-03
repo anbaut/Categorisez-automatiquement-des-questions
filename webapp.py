@@ -15,7 +15,6 @@ def main():
     full_text = df["Title"].values + " " + df["Body"].values
     df["full_text"] = df["Title"] + df["Body"]
 
-    
 
     st.title("Tags prediction")
     menu = ["Content Based prediction"]
@@ -43,18 +42,12 @@ def post_recommend(df,original_title):
     matrix = tf.fit_transform(df['full_text'])
     cosine_similarities = linear_kernel(matrix,matrix)
     post_title = df['Title']
-    indices = pd.Series(df.index, index=df['Title'])
-    
+    indices = pd.Series(df.index, index=df['Title'])    
     idx = indices[original_title]
-
     sim_scores = list(enumerate(cosine_similarities[idx]))
-
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-
     sim_scores = sim_scores[1:31]
-
     movie_indices = [i[0] for i in sim_scores]
-
     return df.iloc[movie_indices]
 
 def recommend_tags(df,original_title, sample_size):
